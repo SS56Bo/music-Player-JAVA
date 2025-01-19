@@ -1,17 +1,14 @@
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import java.awt.Color;
-import java.awt.Panel;
+import javax.swing.*;
+import java.awt.*;
 
-public class MainFrame extends JFrame{
-    
+public class MainFrame extends JFrame {
+
     MainFrame() {
-        //Set Title
+        // Set Title
         this.setTitle("Music Player");
-        
+
         // Set default close operation
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Correct capitalization
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Prevent resizing
         this.setResizable(false);
@@ -19,19 +16,20 @@ public class MainFrame extends JFrame{
         // Set frame size
         this.setSize(560, 420);
 
-        // Set background color
-        this.getContentPane().setBackground(new Color(127, 12, 255)); // Use `java.awt.Color`
-        
-        //add a panel
-        Panel panel = new Panel();
+        // Add a panel
+        JPanel panel = new JPanel(); // Use JPanel instead of Panel
+        panel.setBackground(new Color(200, 200, 255)); // Optional: Set panel color
 
-        //adding components to the panel
-        JCheckBox checkBox = new JCheckBox();
+        // Add components to the panel
+        JCheckBox checkBox = new JCheckBox("Enable Sound");
         panel.add(checkBox);
 
+        // Add the panel to the frame
+        this.add(panel);
+
         // Set logo icon
-        ImageIcon image = new ImageIcon("./../lib/agent-47.png"); // Ensure the path to the image is correct
-        this.setIconImage(image.getImage()); // `setIconImage` applies to `JFrame`
+        ImageIcon image = new ImageIcon("./../lib/agent-47.png"); // Ensure the path is correct
+        this.setIconImage(image.getImage());
 
         // Make the frame visible
         this.setVisible(true);
