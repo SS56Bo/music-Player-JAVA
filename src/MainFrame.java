@@ -1,6 +1,8 @@
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Panel;
 
 public class MainFrame extends JFrame{
     
@@ -18,7 +20,14 @@ public class MainFrame extends JFrame{
         this.setSize(560, 420);
 
         // Set background color
-        this.getContentPane().setBackground(new Color(127, 12, 255)); // Use `java.awt.Color` directly instead of nesting `ColorUIResource`
+        this.getContentPane().setBackground(new Color(127, 12, 255)); // Use `java.awt.Color`
+        
+        //add a panel
+        Panel panel = new Panel();
+
+        //adding components to the panel
+        JCheckBox checkBox = new JCheckBox();
+        panel.add(checkBox);
 
         // Set logo icon
         ImageIcon image = new ImageIcon("./../lib/agent-47.png"); // Ensure the path to the image is correct
