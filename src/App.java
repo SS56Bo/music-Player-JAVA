@@ -14,7 +14,7 @@ public class App extends JFrame {
         jframe.setResizable(false);
 
         // Set frame size
-        jframe.setSize(420, 420);
+        jframe.setSize(560, 420);
 
         // Set background color
         jframe.getContentPane().setBackground(new Color(127, 12, 255)); // Use `java.awt.Color` directly instead of nesting `ColorUIResource`
