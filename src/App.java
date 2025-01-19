@@ -1,20 +1,29 @@
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import java.awt.Color;
 
 public class App extends JFrame {
     public static void main(String[] args) {
-        JFrame jframe = new JFrame("Hello World");
+        // Create the JFrame
+        JFrame jframe = new JFrame("Music Player");
 
-        jframe.setDefaultCloseOperation(jframe.EXIT_ON_CLOSE); // close the java program upon pressing the exit button
+        // Set default close operation
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Correct capitalization
 
-        jframe.setSize(650, 600); // setSize (width, height) (What a weird way to frame, lol)
+        // Prevent resizing
+        jframe.setResizable(false);
 
-        //for button
-        JButton button = new JButton("Press me");
+        // Set frame size
+        jframe.setSize(420, 420);
 
-        //add the button
-        jframe.getContentPane().add(button);
+        // Set background color
+        jframe.getContentPane().setBackground(new Color(127, 12, 255)); // Use `java.awt.Color` directly instead of nesting `ColorUIResource`
 
-        jframe.setVisible(true); // for perpetual keeping it 
+        // Set logo icon
+        ImageIcon image = new ImageIcon("./../lib/agent-47.png"); // Ensure the path to the image is correct
+        jframe.setIconImage(image.getImage()); // `setIconImage` applies to `JFrame`
+
+        // Make the frame visible
+        jframe.setVisible(true);
     }
 }
