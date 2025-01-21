@@ -28,8 +28,10 @@ public class MusicPlayerGUI extends JFrame{
         toolbar.setBounds(0, 0, getWidth(), 20);
         add(toolbar);
 
+        //prevents toolbar from being moved
         toolbar.setFloatable(false); //prevents toolbar from being moved
 
+        //Drop-Down menu
         JMenuBar menuBar = new JMenuBar();
         toolbar.add(menuBar);
 
