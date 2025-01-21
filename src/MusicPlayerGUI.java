@@ -6,7 +6,7 @@ public class MusicPlayerGUI extends JFrame{
        super("Music Player");
 
        //set Size of the window
-       setSize(400, 600);
+       setSize(450, 600);
 
        //end process when app is closed
        setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -18,5 +18,32 @@ public class MusicPlayerGUI extends JFrame{
        setResizable(false);
 
        //
+       setLayout(null);
+
+       addComponents();
+    }
+
+    private void addComponents(){
+        JToolBar toolbar = new JToolBar();
+        toolbar.setBounds(0, 0, getWidth(), 20);
+        add(toolbar);
+
+        toolbar.setFloatable(false); //prevents toolbar from being moved
+
+        JMenuBar menuBar = new JMenuBar();
+        toolbar.add(menuBar);
+
+        JMenu songMenu = new JMenu("Songs");
+        menuBar.add(songMenu);
+
+        JMenuItem loadSong = new JMenuItem("Load Song");
+        songMenu.add(loadSong);
+
+        //for playlist
+        JMenu playlist = new JMenu("Playlists");
+        menuBar.add(playlist);
+
+        JMenuItem loadPlaylist = new JMenuItem("Load Playlist");
+        playlist.add(loadPlaylist);
     }
 }
