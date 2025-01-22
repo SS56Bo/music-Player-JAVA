@@ -35,6 +35,11 @@ public class MusicPlayerGUI extends JFrame{
 
     private void addComponents(){
         ToolbarGUI();
+
+        //load record image
+        JLabel songImage = new JLabel(loadImage("./lib/recordVinyl.png"));
+        songImage.setBounds(0, 50, getWidth()-20, 255);
+        add(songImage);
     }
 
     private void ToolbarGUI(){
@@ -82,7 +87,10 @@ public class MusicPlayerGUI extends JFrame{
             return new ImageIcon(img);
         } catch (Exception e){
             e.printStackTrace();
-            return null;
+            
         }
+
+        //could not find resources
+        return null;
     }
 }
