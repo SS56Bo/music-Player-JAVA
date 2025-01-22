@@ -1,8 +1,15 @@
+import javax.imageio.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class MusicPlayerGUI extends JFrame{
     //constructor for GUI, set title header and size
     public MusicPlayerGUI(){
+        //setting frame color
+       Color FRAME_COLOR = new Color(0, 0, 100);
+
        super("Music Player");
 
        //set Size of the window
@@ -20,10 +27,17 @@ public class MusicPlayerGUI extends JFrame{
        //
        setLayout(null);
 
+       //frame colour
+       getContentPane().setBackground(FRAME_COLOR);
+
        addComponents();
     }
 
     private void addComponents(){
+        ToolbarGUI();
+    }
+
+    private void ToolbarGUI(){
         JToolBar toolbar = new JToolBar();
         toolbar.setBounds(0, 0, getWidth(), 20);
         add(toolbar);
@@ -41,6 +55,9 @@ public class MusicPlayerGUI extends JFrame{
         JMenuItem loadSong = new JMenuItem("Load Song");
         songMenu.add(loadSong);
 
+        JMenuItem newSong = new JMenuItem("New Song");
+        songMenu.add(newSong);
+
         //for playlist
         JMenu playlist = new JMenu("Playlists");
         menuBar.add(playlist);
@@ -48,11 +65,24 @@ public class MusicPlayerGUI extends JFrame{
         JMenuItem loadPlaylist = new JMenuItem("Load Playlist");
         playlist.add(loadPlaylist);
 
+        JMenuItem createPlaylist = new JMenuItem("Create Playlist");
+        playlist.add(createPlaylist);
+
         //for edit menu component
         JMenu Edit = new JMenu("Edit");
         menuBar.add(Edit);
 
         JMenuItem editPlayer = new JMenuItem("Edit IG");
         Edit.add(editPlayer);
+    }
+
+    private ImageIcon loadImage(String path){
+        try {
+            BufferedImage img = ImageIO.read(new File(path));
+            return new ImageIcon(img);
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }
