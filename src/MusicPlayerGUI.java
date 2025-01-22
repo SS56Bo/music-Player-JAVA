@@ -9,6 +9,7 @@ public class MusicPlayerGUI extends JFrame{
     public MusicPlayerGUI(){
         //setting frame color
        Color FRAME_COLOR = new Color(0, 0, 100);
+       
 
        super("Music Player");
 
@@ -34,12 +35,21 @@ public class MusicPlayerGUI extends JFrame{
     }
 
     private void addComponents(){
+        Color TEXT_COLOR = new Color(255,255, 255);
         ToolbarGUI();
 
         //load record image
         JLabel songImage = new JLabel(loadImage("./lib/recordVinyl.png"));
         songImage.setBounds(0, 50, getWidth()-20, 255);
         add(songImage);
+
+        //song title
+        JLabel songTitle = new JLabel("Song Title"); 
+        songTitle.setBounds(0, 300, getWidth()-10, 30);
+        songTitle.setFont(new Font("Dialog", Font.BOLD, 20));
+        songTitle.setForeground(TEXT_COLOR);
+        songTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        add(songTitle);
     }
 
     private void ToolbarGUI(){
